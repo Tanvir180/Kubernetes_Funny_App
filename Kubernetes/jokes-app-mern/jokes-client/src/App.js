@@ -14,36 +14,31 @@ import { BASE_URL } from './baseApiUrl';
 
 
 function App() {
-    const [jokes, setJokes] = useState([])
-
-    const fetchJoke = async() => {
-        try {
-            const res = await fetch(`${BASE_URL}/getJokes`)
-            const result = await res.json()
-            setJokes(result.jokes)
-        } catch (err) {
-            console.log(err)
-            alert("something went wrong")
-        }
-
+  const [jokes,setJokes] = useState([])
+  
+  const fetchJoke = async ()=>{
+    try{
+        const res =  await fetch(`${BASE_URL}/getJokes`)
+        const result = await res.json()
+        setJokes(result.jokes) 
+    }catch(err){
+        console.log(err)
+        alert("something went wrong")
     }
+ 
+  }
 
 
-    useEffect(() => {
-        fetchJoke()
-    }, [])
-    return ( <
-        div className = "App" >
-        <
-        h1 > Programming Jokes < /h1> <
-        hr / >
-        <
-        JokeList jokes = { jokes }
-        /> < /
-        div >
-    );
-
-
+  useEffect(()=>{
+   fetchJoke()
+  },[])
+  return (
+    <div className="App">
+       <h1>Programming Jokes</h1>
+       <hr />
+       <JokeList jokes={jokes} />
+    </div>
+  );
 }
 
 export default App;

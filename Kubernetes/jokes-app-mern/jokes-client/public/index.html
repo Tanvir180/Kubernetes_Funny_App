@@ -8,6 +8,7 @@
     <meta name="theme-color" content="#000000" />
     <meta name="description" content="Web site created using create-react-app" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -23,9 +24,382 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>Jokes App</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fbfbfd;
+            text-align: center;
+        }
+        
+        header {
+            background-color: #333;
+            color: white;
+            padding: 5px;
+            text-align: center;
+        }
+        
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            background-color: #555;
+        }
+        
+        nav a:hover {
+            background-color: #666;
+        }
+        
+        .slider-container {
+            width: 80%;
+            margin: 20px auto;
+            margin-bottom: 70px auto;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        
+        .slider {
+            display: flex;
+            width: 100%;
+            height: 500px;
+            transition: transform 2s ease-in-out;
+        }
+        
+        .slider img {
+            width: 100%;
+            vertical-align: top;
+        }
+        
+        .slider img:not(:first-child) {
+            margin-left: -100%;
+        }
+        
+        h2 {
+            color: #4b505e;
+        }
+        
+        footer.new_footer_area {
+            background: #fbfbfd;
+        }
+        
+        .new_footer_top {
+            padding: 0px 0px 270px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        .new_footer_area .footer_bottom {
+            padding-top: 5px;
+            padding-bottom: 50px;
+        }
+        
+        .footer_bottom {
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 20px;
+            color: #7f88a6;
+            padding: 27px;
+        }
+        
+        .new_footer_top .company_widget p {
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 28px;
+            color: #6a7695;
+            margin-bottom: 20px;
+        }
+        
+        .new_footer_top .company_widget .f_subscribe_two .btn_get {
+            border-width: 1px;
+            margin-top: 20px;
+        }
+        
+        .btn_get_two:hover {
+            background: transparent;
+            color: #5e2ced;
+        }
+        
+        .btn_get:hover {
+            color: #fff;
+            background: #6754e2;
+            border-color: #6754e2;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+        
+        a:hover,
+        a:focus,
+        .btn:hover,
+        .btn:focus,
+        button:hover,
+        button:focus {
+            text-decoration: none;
+            outline: none;
+        }
+        
+        .new_footer_top .f_widget.about-widget .f_list li a:hover {
+            color: #5e2ced;
+        }
+        
+        .new_footer_top .f_widget.about-widget .f_list li {
+            margin-bottom: 11px;
+        }
+        
+        .f_widget.about-widget .f_list li:last-child {
+            margin-bottom: 0px;
+        }
+        
+        .f_widget.about-widget .f_list li {
+            margin-bottom: 15px;
+        }
+        
+        .f_widget.about-widget .f_list {
+            margin-bottom: 0px;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .new_footer_top .f_social_icon a {
+            width: 44px;
+            height: 44px;
+            line-height: 43px;
+            background: transparent;
+            border: 1px solid #e2e2eb;
+            font-size: 24px;
+        }
+        
+        .f_social_icon a {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            font-size: 14px;
+            line-height: 45px;
+            color: #858da8;
+            display: inline-block;
+            background: #ebeef5;
+            text-align: center;
+            -webkit-transition: all 0.2s linear;
+            -o-transition: all 0.2s linear;
+            transition: all 0.2s linear;
+        }
+        
+        .ti-facebook:before {
+            content: "\e741";
+        }
+        
+        .ti-twitter-alt:before {
+            content: "\e74b";
+        }
+        
+        .ti-vimeo-alt:before {
+            content: "\e74a";
+        }
+        
+        .ti-pinterest:before {
+            content: "\e731";
+        }
+        
+        .btn_get_two {
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            background: #5e2ced;
+            border-color: #5e2ced;
+            color: #fff;
+        }
+        
+        .btn_get_two:hover {
+            background: transparent;
+            color: #5e2ced;
+        }
+        
+        .new_footer_top .f_social_icon a:hover {
+            background: #5e2ced;
+            border-color: #5e2ced;
+            color: white;
+        }
+        
+        .new_footer_top .f_social_icon a+a {
+            margin-left: 4px;
+        }
+        
+        .new_footer_top .f-title {
+            margin-bottom: 30px;
+            color: #263b5e;
+        }
+        
+        .f_600 {
+            font-weight: 600;
+        }
+        
+        .f_size_18 {
+            font-size: 18px;
+        }
+        
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: #4b505e;
+        }
+        
+        .new_footer_top .f_widget.about-widget .f_list li a {
+            color: #6a7695;
+        }
+        
+        .new_footer_top .footer_bg {
+            position: absolute;
+            bottom: 0;
+            background: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEigB8iI5tb8WSVBuVUGc9UjjB8O0708X7Fdic_4O1LT4CmLHoiwhanLXiRhe82yw0R7LgACQ2IhZaTY0hhmGi0gYp_Ynb49CVzfmXtYHUVKgXXpWvJ_oYT8cB4vzsnJLe3iCwuzj-w6PeYq_JaHmy_CoGoa6nw0FBo-2xLdOPvsLTh_fmYH2xhkaZ-OGQ/s16000/footer_bg.png") no-repeat scroll center 0;
+            width: 100%;
+            height: 266px;
+        }
+        
+        .new_footer_top .footer_bg .footer_bg_one {
+            background: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEia0PYPxwT5ifToyP3SNZeQWfJEWrUENYA5IXM6sN5vLwAKvaJS1pQVu8mOFFUa_ET4JuHNTFAxKURFerJYHDUWXLXl1vDofYXuij45JZelYOjEFoCOn7E6Vxu0fwV7ACPzArcno1rYuVxGB7JY6G7__e4_KZW4lTYIaHSLVaVLzklZBLZnQw047oq5-Q/s16000/volks.gif") no-repeat center center;
+            width: 330px;
+            height: 105px;
+            background-size: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 30%;
+            -webkit-animation: myfirst 22s linear infinite;
+            animation: myfirst 22s linear infinite;
+        }
+        
+        .new_footer_top .footer_bg .footer_bg_two {
+            background: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhyLGwEUVwPK6Vi8xXMymsc-ZXVwLWyXhogZxbcXQYSY55REw_0D4VTQnsVzCrL7nsyjd0P7RVOI5NKJbQ75koZIalD8mqbMquP20fL3DxsWngKkOLOzoOf9sMuxlbyfkIBTsDw5WFUj-YJiI50yzgVjF8cZPHhEjkOP_PRTQXDHEq8AyWpBiJdN9SfQA/s16000/cyclist.gif") no-repeat center center;
+            width: 88px;
+            height: 100px;
+            background-size: 100%;
+            bottom: 0;
+            left: 38%;
+            position: absolute;
+            -webkit-animation: myfirst 30s linear infinite;
+            animation: myfirst 30s linear infinite;
+        }
+        
+        @-moz-keyframes myfirst {
+            0% {
+                left: -25%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+        
+        @-webkit-keyframes myfirst {
+            0% {
+                left: -25%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+        
+        @keyframes myfirst {
+            0% {
+                left: -25%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+        
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        
+        .card {
+            width: 25%;
+            margin: 15px 0;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .card:hover {
+            transform: scale(1.05);
+        }
+        
+        .card img {
+            max-width: 300px;
+            height: 200px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        
+        .text-container {
+            background-image: url('bg3.jpeg');
+            background-size: cover;
+            background-position: center;
+            padding: 200px;
+            color: black;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .about-section {
+            background-color: #f9f9f9;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        
+        .about-section h2 {
+            color: #4b505e;
+        }
+        
+        .about-section p {
+            color: #6a7695;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+    </style>
+
 </head>
 
 <body>
+
+
+    <header>
+        <h1>Jokes Of The Day</h1>
+    </header>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <div class="slider-container">
+        <div class="slider">
+            <img src="image5.png" alt="Image 1">
+            <img src="bg1.jpg" alt="Image 2">
+            <img src="image2.png" alt="Image 3">
+        </div>
+    </div>
+
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
@@ -38,6 +412,133 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
+
+
+    <h2>Jokes Categories</h2>
+
+    <!-- Cards Section -->
+    <div class="card-container">
+        <!-- Row 1: Card 1, Card 2, Card 3 -->
+        <div class="card">
+            <img src="animal1.jpeg" alt="Card 1">
+            <h3>ANIMAL JOKES</h3>
+            <p>This type of jokes is related to animals</p>
+        </div>
+        <div class="card">
+            <img src="office.jpeg" alt="Card 2">
+            <h3>OFFICE JOKES</h3>
+            <p>This type of jokes is related to Office</p>
+        </div>
+        <div class="card">
+            <img src="food1.jpg" alt="Card 3">
+            <h3>FOOD JOKES</h3>
+            <p>This type of jokes is related to foods</p>
+        </div>
+
+        <!-- Row 2: Card 4, Card 5, Card 6 -->
+        <div class="card">
+            <img src="school.jpeg" alt="Card 4">
+            <h3>SCHOOL JOKES</h3>
+            <p>This type of jokes is related to school</p>
+        </div>
+        <div class="card">
+            <img src="sport.png" alt="Card 5">
+            <h3>SPORTS JOKES</h3>
+            <p>This type of jokes is related to sports</p>
+        </div>
+        <div class="card">
+            <img src="science3.jpg" alt="Card 6">
+            <h3>SCIENCE JOKES</h3>
+            <p>This type of jokes is related to science</p>
+        </div>
+    </div>
+
+    <h2>Are you ready for today's joke?</h2>
+
+    <!-- Text Container with Background Image -->
+    <div class="text-container">
+        <h1></h1>
+        <p></p>
+    </div>
+
+    <!-- About Section -->
+    <div class="about-section">
+        <h2>About</h2>
+        <p>A joke is a display of humour in which words are used within a specific and well-defined narrative structure to make people laugh and is usually not meant to be interpreted literally.[1] It usually takes the form of a story, often with dialogue,
+            and ends in a punch line, whereby the humorous element of the story is revealed; this can be done using a pun or other type of word play, irony or sarcasm, logical incompatibility, hyperbole, or other means.</p>
+        <p>Our webpage gives a random jokes for u everyday.</p>
+    </div>
+
+    <footer class="new_footer_area bg_color">
+        <div class="new_footer_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="f_widget company_widget wow fadeInLeft" data-wow-delay="0.2s">
+                            <h3 class="f-title f_600 t_color f_size_18">Get in Touch</h3>
+                            <p>Don’t miss any jokes of our site!</p>
+                            <form action="#" class="f_subscribe_two mailchimp" method="post" novalidate="true" _lpchecked="1">
+                                <input type="text" name="EMAIL" class="form-control memail" placeholder="Email">
+                                <button class="btn btn_get btn_get_two" type="submit">Subscribe</button>
+                                <p class="mchimp-errmessage" style="display: none;"></p>
+                                <p class="mchimp-sucmessage" style="display: none;"></p>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Team Solutions Section with WhatsApp icon -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="f_widget social-widget pl_70 wow fadeInLeft" data-wow-delay="0.8s">
+                            <h3 class="f-title f_600 t_color f_size_18">Team Solutions</h3>
+                            <div class="f_social_icon">
+                                <a href="#" class="fab fa-facebook"></a>
+                                <a href="#" class="fab fa-twitter"></a>
+                                <a href="#" class="fab fa-whatsapp"></a>
+                                <!-- Added WhatsApp icon -->
+                                <a href="#" class="fab fa-pinterest"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_bg">
+                <div class="footer_bg_one"></div>
+                <div class="footer_bg_two"></div>
+            </div>
+        </div>
+        <div class="footer_bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-sm-7">
+                        <p class="mb-0 f_400">© Jokes site ,Team FIX_IT, 2024.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript code for auto-moving slider
+        document.addEventListener('DOMContentLoaded', function() {
+            var slider = document.querySelector('.slider');
+            setInterval(function() {
+                slider.style.transform = 'translateX(-100%)';
+                setTimeout(function() {
+                    slider.appendChild(slider.firstElementChild);
+                    slider.style.transition = 'none';
+                    slider.style.transform = 'translateX(0)';
+                    setTimeout(function() {
+                        slider.style.transition = 'transform 2s ease-in-out';
+                    });
+                }, 2000);
+            }, 5000);
+        });
+    </script>
+
+
+
 </body>
 
 </html>
